@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista marcas {% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-sm-9">
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">
+                {{form.nombre_marca.label}}
+            </label>
+            <div class="col-sm-8">
+                {{form.nombre_marca}}
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">crear</button>
+    <a class="btn btn-info" href="{% url 'listar.marcas' %}">cancelar</a>
+</form>
+{% endblock %}

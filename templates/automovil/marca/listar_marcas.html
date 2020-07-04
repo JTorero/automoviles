@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista marcas {% endblock %}
+
+{% block content %}
+<div class="col-autor">
+    <a class="btn btn-primary pull-right" href="{% url 'crear.marca' %}">
+        <i class="fa fa-add"></i>agregar marca
+    </a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for marca in marcas %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{marca.nombre_marca}}</td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-warning" href="">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger" href="">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+{% endblock %}
